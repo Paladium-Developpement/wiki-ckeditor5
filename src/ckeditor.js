@@ -16,6 +16,8 @@ import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
@@ -30,6 +32,7 @@ import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
+import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
@@ -120,6 +123,8 @@ DecoupledEditor.builtinPlugins = [
 	CodeBlock,
 	Essentials,
 	FontFamily,
+	FontColor,
+	FontBackgroundColor,
 	FontSize,
 	Heading,
 	Highlight,
@@ -137,6 +142,7 @@ DecoupledEditor.builtinPlugins = [
 	Link,
 	LinkToPage,
 	List,
+	ListProperties,
 	MediaEmbed,
 	Mention,
 	Paragraph,
@@ -171,6 +177,8 @@ DecoupledEditor.defaultConfig = {
 			'|',
 			'fontsize',
 			'fontfamily',
+			'fontColor',
+			'fontBackgroundColor',
 			'|',
 			'bold',
 			'italic',
@@ -221,11 +229,13 @@ DecoupledEditor.defaultConfig = {
 			'alignRight'
 		],
 		toolbar: [
+			'imageStyle:inline',
+			'|',
 			'imageStyle:alignLeft',
-			'imageStyle:full',
+			'imageStyle:alignCenter',
 			'imageStyle:alignRight',
 			'|',
-			'imageTextAlternative'
+			'toggleImageCaption'
 		]
 	},
 	table: {
@@ -237,6 +247,13 @@ DecoupledEditor.defaultConfig = {
 			'tableProperties'
 		]
 	},
+	list: {
+		properties: {
+			styles: true,
+			startIndex: true,
+			reversed: true
+		}
+	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'fr'
 };
